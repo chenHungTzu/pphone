@@ -1,0 +1,14 @@
+<nav>
+  <div class="nav nav-tabs" id="nav-tab" role="tablist">
+    <a class="nav-item nav-link active" id="nav-ctrl-panel-tab" data-toggle="tab" href="#nav-ctrl-panel" role="tab" aria-controls="nav-ctrl-panel" aria-selected="true">通話控制</a>
+    <a class="nav-item nav-link" id="nav-records-tab" data-toggle="tab" href="#nav-records" role="tab" aria-controls="nav-records" aria-selected="false">通聯紀錄</a>
+  </div>
+</nav>
+<div class="tab-content" id="nav-tabContent">
+  <div class="tab-pane fade show active" id="nav-ctrl-panel" role="tabpanel" aria-labelledby="nav-ctrl-panel-tab">
+    <app-control-panel></app-control-panel>
+  </div>
+  <div class="tab-pane fade" id="nav-records" role="tabpanel" aria-labelledby="nav-records-tab">
+    <app-communication-records></app-communication-records>
+  </div>
+</div>
