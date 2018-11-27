@@ -1,29 +1,35 @@
 import { MemberModel } from './../../model/member.model';
 import { Injectable } from "@angular/core";
+import { Observable } from 'rxjs';
 
 @Injectable()
 export class HookService {
 
-    constructor() {
-
+    afterLogin(result : any){
+        console.log('afterLogin');
     }
 
-    afterLogin(model: MemberModel) {
+    beforeLogin(model: MemberModel): Observable<any> {
+        return Observable.create((obs) => {
+            console.log('beforeLogin');
+            obs.next(model)
 
+        })
     }
 
-    beforeLogin(model: MemberModel) {
-
+    
+    afterLogoff(result : any){
+        console.log('afterLogoff');
     }
 
+    beforeLogoff(model: MemberModel) : Observable<any>{
+        return Observable.create((obs) => {
+            console.log('beforeLogoff');
+            obs.next(model)
 
-    afterLogout(model: MemberModel) {
-
+        })
     }
 
-    beforeLogout(model: MemberModel) {
-
-    }
 
 
 }

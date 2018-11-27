@@ -3,7 +3,6 @@ import { BreakModel } from './../../model/break.model';
 import { CallModel } from './../../model/call.model';
 import { Injectable } from "@angular/core";
 
-
 @Injectable()
 export class OperatorService {
 

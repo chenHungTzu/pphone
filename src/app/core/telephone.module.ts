@@ -5,17 +5,44 @@ import { CommunicationRecordsComponent } from './components/communication-record
 import { TelephoneComponent } from './components/telephone/telephone.component';
 import { ErrorComponent } from './components/error/error.component';
 import { TelephoneRoutingModule } from './telephone-routing.module';
+import { FormsModule } from '@angular/forms';
+
+import { PtcCommonModule } from 'pcommon'
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
+import { effects } from './ngrx/effects/index';
+
+import { reducers } from './ngrx/reducers/index';
+import { HookService } from './service/outbound/hook.service';
+import { OperatorService } from './service/inbound/operator.service';
+import { AuthenticationService } from './service/inbound/authentication.service';
 
 @NgModule({
   declarations: [
-    ControlPanelComponent, 
-    CommunicationRecordsComponent, 
-    TelephoneComponent, 
+    ControlPanelComponent,
+    CommunicationRecordsComponent,
+    TelephoneComponent,
     ErrorComponent
+  ],
+  providers: [
+    AuthenticationService,
+    HookService,
+    OperatorService
   ],
   imports: [
     CommonModule,
-    TelephoneRoutingModule
+    FormsModule,
+    PtcCommonModule,
+    StoreModule.forFeature('phone', reducers),
+    EffectsModule.forFeature(effects),
+    TelephoneRoutingModule,
+  ],
+  exports: [
+    TelephoneRoutingModule,
+    ControlPanelComponent,
+    CommunicationRecordsComponent,
+    TelephoneComponent,
+    ErrorComponent
   ]
 })
 export class TelephoneModule { }

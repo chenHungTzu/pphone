@@ -1,3 +1,10 @@
-<p>
-  control-panel works!
-</p>
+<div *ngIf="!(sLoginID$ | async) ; else operator">
+  <input type="text" [(ngModel)]="member.loginID" placeholder="請輸入話務帳號">
+  <input type="text" [(ngModel)]="member.extension" placeholder="請輸入分機">
+  <button type="button" class="btn btn-primary" (click)="btnLogin($event)">話務登入</button>
+</div>
+
+<ng-template #operator>
+loginsuccess
+<button type="button" class="btn btn-primary" (click)="btnLogoff($event)">話務登出</button>
+</ng-template>
