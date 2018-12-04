@@ -1,10 +1,9 @@
-#ctrl-panel-container{
+#ctrl-panel-container {
     position: absolute;
-    width : 100vw;
+    width: 100vw;
     height: 100vh;
     background: linear-gradient(#006374, #008080);
-
-    #user-img{
+    #title-img {
         width: 120px;
         height: 120px;
         border-radius: 120px;
@@ -15,35 +14,34 @@
         text-align: center;
         font-size: 70px;
         left: calc(50vw - 60px);
-
     }
-
-    #title{
+    #title {
         position: relative;
         color: white;
         text-align: center;
         top: 20vh;
         font-size: 30px;
-    
     }
-    #login-form{
+    #login-form {
         position: absolute;
         width: 100vw;
         top: 60vh;
-        button{
+        button {
             font-size: 22px;
             margin-top: 10vh;
             border-top: 1px solid;
             border-bottom: 1px solid;
-            i{
+            i {
                 margin-right: 10px;
             }
         }
-        ::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+        ::placeholder {
+            /* Chrome, Firefox, Opera, Safari 10.1+ */
             color: white;
-            opacity: 1; /* Firefox */
+            opacity: 1;
+            /* Firefox */
         }
-        .form-control{
+        .form-control {
             background-color: transparent;
             border-radius: 0;
             border: none;
@@ -53,75 +51,149 @@
             margin-left: 15%;
         }
     }
-
-    
-    #dail-form{
+    #dail-form {
+        top: 10vh;
+        position: relative;
+        width: 100vw;
+        text-align: center;
+        color: white;
+        font-size: 40px;
+        button {
+            font-size: 22px;
+            margin-top: 10vh;
+            border-top: 1px solid;
+            border-bottom: 1px solid;
+            i {
+                margin-right: 10px;
+            }
+        }
+        .col {
+            border: 1px solid white;
+        }
+        .col:active {
+            background-color: white;
+            color: #008080;
+        }
+        .row {
+            margin: 0;
+        }
+        #dial {
+            position: relative;
+            height: 20vh;
+            margin-bottom: 5vh;
+            margin-left: 5vw;
+            margin-right: 5vw;
+            background-color: black;
+            border-radius: 20px;
+            color: white;
+            width: 90vw;
+            .funcs {
+                right: 0;
+                position: absolute;
+                i {
+                    font-size: 25px;
+                    margin-right: 20px;
+                    opacity: 0.5;
+                }
+            }
+            #agent-info {
+                color: rgba($color: (white), $alpha: 0.7);
+                font-size: 10px;
+                text-align: left;
+                margin-left: 20px;
+            }
+            #phone-num {
+                color: white;
+                text-align: left;
+                font-size: 20px;
+                font-weight: bolder;
+                margin-top: 15px;
+                margin-left: 20px;
+                max-width: 80vw;
+                overflow-x: scroll;
+            }
+        }
+    }
+    #onHook {
+        position: relative;
+        height: 100vh;
+        #user-img {
+            color: white;
+            width: 150px;
+            height: 150px;
+            border-radius: 150px;
+            color: white;
+            position: relative;
+            top: 5vh;
+            border: 3px solid white;
+            text-align: center;
+            font-size: 70px;
+            left: calc(50vw - 76px);
+            overflow: hidden;
+            img {
+                height: 160px;
+                width: 160px;
+            }
+        }
+        #phone-num {
+            color: white;
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: 2px;
             top: 10vh;
             position: relative;
-            width: 100vw;
             text-align: center;
+        }
+        #user-name {
+            color: rgba($color: white, $alpha: 0.8);
+            font-size: 24px;
+            letter-spacing: 2px;
+            top: 11vh;
+            position: relative;
+            text-align: center;
+        }
+        #phone-status {
             color: white;
-            font-size: 40px;
-            button{
+            font-size: 26px;
+            letter-spacing: 2px;
+            top: 12vh;
+            position: relative;
+            text-align: center;
+        }
+        
+
+        .row {
+            position: relative;
+            top: 15vh;
+            color: white;
+            text-align: center;
+            margin : 0px;
+
+            .item {
+                margin-top: 2vh;            
+                width: calc(100vw / 2);
+                .circle {
+                    font-size: 2rem;
+                    border: 2px solid white;
+                    border-radius: calc(100vw / 2);
+                    line-height: 70px;
+                    width: 70px;
+                    height: 70px;
+                    border-radius: 100px;
+                    overflow: hidden;
+                }
+            }
+            button {
                 font-size: 22px;
-                margin-top: 10vh;
-                border-top: 1px solid;
-                border-bottom: 1px solid;
-                i{
+                margin-top: 1vh;
+                position: relative;
+                border-top: 1px solid white;
+                border-bottom: 1px solid white;
+                i {
                     margin-right: 10px;
                 }
             }
-            .col{
-                border : 1px solid white;
-            }
-            .col:active{
-                background-color: white;
-                color: #008080;
-            }
-            .row{
-                margin: 0;
-            }
-            #dial{
-                position: relative;
-                height: 20vh;
-                margin-bottom: 5vh;
-                margin-left: 5vw;
-                margin-right: 5vw;
-                background-color: black;
-                border-radius: 20px;
-                color: white;
-                width: 90vw;
-                .funcs{
-                    right: 0;
-                    position: absolute;
-                    i{                     
-                        font-size: 25px;
-                        margin-right: 20px;
-                        opacity: 0.5;
-                    }
-                   
-                }
-               
-                #agent-info{
-                    color: rgba($color: (white), $alpha: 0.7);
-                    font-size: 10px;
-                    text-align: left;
-                    margin-left: 20px;
-                }
-                #phone-num{
-                    color: white;
-                    text-align: left;
-                    font-size: 20px;
-                    font-weight: bolder;
-                    margin-top: 15px;
-                    margin-left: 20px;
-                    max-width: 80vw;
-                    overflow-x: scroll;
-                
-                }
-              
-            }
+        }
+       
     }
-
-    
 }

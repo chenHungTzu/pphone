@@ -1,11 +1,11 @@
 <div id="ctrl-panel-container">
 
 
-  <!-- <div id="user-img"><i class="fa fa-users"></i></div> -->
+  <div id="title-img" *ngIf="!flogin"><i class="fa fa-users"></i></div>
 
-  <!-- <div id="title" *ngIf="!(sLoginID$ | async)">PTC 話務系統</div>
+  <div id="title" *ngIf="!flogin">PTC 話務系統</div>
 
-  <div id="login-form" *ngIf="!(sLoginID$ | async) ; else operator">
+  <div id="login-form" *ngIf="!flogin">
     <div class="form-group">
       <input type="text" class="form-control" [(ngModel)]="member.loginID" placeholder="話務帳號">
     </div>
@@ -13,17 +13,18 @@
       <input type="text" class="form-control" [(ngModel)]="member.extension" placeholder="請輸入分機號碼">
     </div>
 
-    <button type="button" class="btn btn-block btn-danger" (click)="btnLogin($event)"><i class="fa fa-headphones"></i>話務登入</button>
-  </div> -->
+    <button type="button" class="btn btn-block btn-danger" (click)="flogin = !flogin"><i class="fa fa-headphones"></i>話務登入</button>
+  </div>
 
-  <div #operator id="operator">
-    <div id="dail-form">     
+  <div id="operator" *ngIf="flogin && !dial">
+    <div id="dail-form">
       <div id="dial">
         <div id="agent-info">值機員代號:10019494 分機:3934</div>
         <div id="phone-num">尚未輸入電話</div>
         <div class='funcs'>
-        <i class="fa fa-bell-slash-o workon"></i>
-        <i class="fa fa-share-square-o logout"></i>
+          <i class="fa fa-child"></i>
+          <i class="fa fa-bell-slash-o workon"></i>
+          <i class="fa fa-share-square-o logout" (click)="flogin = !flogin"></i>
         </div>
       </div>
 
@@ -49,11 +50,34 @@
           <div class="col">*</div>
         </div>
       </div>
-      <button type="button" class="btn btn-block btn-success" (click)="dial($event)"><i class="fa fa-phone"></i>撥號</button>
+      <button type="button" class="btn btn-block btn-success" (click)="dial = !dial"><i class="fa fa-phone"></i>撥號</button>
     </div>
-    
-    <!-- loginsuccess
-    <button type="button" class="btn btn-primary" (click)="btnLogoff($event)">話務登出</button> -->
-  </div>
 
+  </div>
+  <div id="onHook" *ngIf="dial">
+    <div id="user-img"><img src="https://i.kinja-img.com/gawker-media/image/upload/s--6qLfWKim--/c_scale,f_auto,fl_progressive,q_80,w_800/y7fvvbuthccs36bxdemf.jpg"></div>
+    <div id="phone-num">(+886)0926366680</div>
+    <div id="user-name">chenHungTzu</div>
+    <div id="phone-status">Calling...</div>
+    <div class="row">
+      <div class="item">
+        <div class="m-l-15"><i class="fa fa-microphone circle"></i></div>
+        <div class="m-l-15">Mute</div>
+      </div>
+      <div class="item">
+        <div class="m-r-15"><i class="fa fa-stop-circle circle"></i></div>
+        <div class="m-r-15">Hold on</div>
+      </div>
+      <div class="item">
+        <div class="m-l-15"><i class="fa fa-keyboard-o circle"></i></div>
+        <div class="m-l-15">Keyboard</div>
+      </div>
+      <div class="item">
+        <div class="m-r-15"><i class="fa fa-transgender circle"></i></div>
+        <div class="m-r-15">Transfer</div>
+      </div>
+      <button type="button" class="btn btn-block btn-danger" (click)="dial = !dial"><i class="fa fa-phone"></i>掛斷</button>
+
+    </div>
+  </div>
 </div>

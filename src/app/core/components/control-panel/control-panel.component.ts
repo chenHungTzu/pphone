@@ -13,6 +13,8 @@ import { Observable } from 'rxjs';
 })
 export class ControlPanelComponent implements OnInit {
 
+  public dial : boolean = false;
+  public flogin : boolean = false
   public sLoginID$ : Observable<string>;
   public member : MemberModel = new MemberModel();
 
